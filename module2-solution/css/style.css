@@ -1,0 +1,213 @@
+/********** Base styles **********/
+*{
+    box-sizing:border-box;
+    font-family: Arial Rounded MT, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+#divMenu {
+    margin-bottom: 60px;
+    margin-top: 60px;
+    text-align:center;
+}
+
+h1 {
+    font-size: 175%;
+}
+
+#div1,#div2,#div3 {
+    border: 2px solid black;
+    padding:45px 10px 10px 10px;
+    margin:4px;
+    height:200px;
+    position:relative;
+    float:left;
+    overflow:hidden;
+    width:30%;
+    background-color:#8c8c8c;
+}
+
+p{
+    margin-left:auto;
+    margin-right:auto;
+    padding:5px;
+    text-align:justify;
+    background-color:#8c8c8c;
+}
+
+section {
+    border-width: 0px 0px 2px 2px;
+    border-style:solid;
+    border-color:black;
+    padding: 4px 10px 4px 10px;
+    top:0px;
+    right:0px;
+    position:absolute;
+    width:200px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.row {
+    width:100%;
+}
+
+/** -- By Default Hide the Categories Title -- **/
+#divCategories {
+   display:none;
+}
+
+#div1Head, #div2Head, #div3Head {
+    display:block;
+    font-size: 125%;
+}
+
+#div1Sec, #div2Sec, #div3Sec {
+    display:none;
+}
+
+#div1Head, #div1Sec {
+    background-color:#ffb3bf;
+}
+
+#div2Head, #div2Sec {
+    background-color:#cc0000;
+    color:white;
+}
+
+#div3Head, #div3Sec {
+    background-color:#ffff59;
+}
+
+/** -- Making the boxes scrollable -- **/
+#div1:hover {
+    overflow-y:scroll;
+    cursor:n-resize;
+}
+
+#div2:hover {
+    overflow-y:scroll;
+    cursor:n-resize;
+}
+
+#div3:hover {
+    overflow-y:scroll;
+    cursor:n-resize;
+}
+
+/********** Desktop View - 992px and Higher **********/
+@media(min-width: 992px){
+
+    #div1{
+        width:30%;
+        margin-left:25px;
+        float:left;
+        }
+
+    #div2{
+        width:30%;
+        float:left;
+        }
+
+    #div3 {
+        width:30%;
+        }
+                
+    #divCategories {
+        display:none;
+        }
+}
+
+ 
+/********** Tablet View - Between 768px & 991px **********/
+@media(min-width:768px) and (max-width:991px) {
+
+   #div1 {
+        width:45%;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        margin-bottom:20px;
+        float:left;              
+        }
+
+    #div2 {
+        width:45%;
+        float:left;
+        margin-bottom:20px;
+        margin-right:2.5%;
+        }
+
+    #div3 {
+        width:92.5%;
+        clear:both;
+        margin-left:2.5%;
+        margin-right:2.5%;
+        }
+
+    #divCategories {
+        display:none;
+        }
+}
+
+ 
+/********** Mobile View - Equal or less than 767px **********/
+
+@media(max-width:767px) {
+
+    #divMenu {
+        display: none;
+        }
+        
+    #divCategories {
+        display:block;
+        font-family: Century Gothic, Helvetica, sans-serif;
+        color: blue;
+        margin-left:10%;
+        margin-top: 5%;
+        margin-bottom: 10px;
+        font-size:85%;
+        left:0;
+        top:0;   
+        text-align:left;
+        }
+
+    #div1 {                 
+        width:80%;
+        margin-left:10%;
+        margin-right:10%;
+        text-align:center;                            
+        }
+
+    #div2 {
+        width:80%;
+        margin-left:10%;
+        margin-right:10%;
+        text-align:center;
+        }
+
+    #div3 {
+        width:80%;
+        margin-left:10%;
+        margin-right:10%;
+        text-align:center;
+        }
+
+    section {
+        width:100%;
+    }
+
+    #div1Head, #div2Head, #div3Head {
+        display:none;
+    }
+
+    #div1Sec, #div2Sec, #div3Sec {
+        display:block;
+        border-width: 0px 0px 2px 0px;
+        font-size:18px;
+        padding:0px;
+        margin:0px;
+        word-wrap:break-word;
+        text-align: center;
+    }
+}
