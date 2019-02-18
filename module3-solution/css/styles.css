@@ -1,0 +1,146 @@
+/********** Base styles **********/
+body{
+	font-family: Arial Rounded MT, Helvetica, sans-serif;
+	margin-left: 0px;
+	margin-right: 0px;
+	color: #000000;
+}
+
+nav{
+    background-color: #8c8c8c;
+}
+
+h1{
+	margin:0;
+	font-size: 28px;
+	color: #000000;
+}
+
+#nav-menu-button{
+  margin-top: 25px;
+  border: 1px solid #000;
+}
+
+#nav-menu-button .icon-bar{
+	background-color: #000;
+}
+
+#nav-menu-button:hover {
+	background-color: #f2f2f2;
+}
+
+header {
+	border-width: 2px 0px 2px 0px;
+	border-style:solid;
+    border-color:black;
+}
+
+.navbar>.container-fluid .navbar-brand{
+	margin-left: 5px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#header-nav{
+	border-style: none;
+	border-radius: 0;
+	margin-bottom: 0;
+	background-color: #8c8c8c;
+}
+
+#collapsed-menu{
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+#menu-list{
+	background-color: #8c8c8c;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 5px;
+}
+
+#section-one, #section-two, #section-three {
+	border: 0px;
+	background-color:#8c8c8c;
+	height:300px;
+	overflow:hidden;
+	float:left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/** -- Making boxes scrollable -- **/
+#section-one:hover {
+	overflow-y:scroll;
+	cursor:n-resize;
+}
+
+#section-two:hover {
+	overflow-y:scroll;
+	cursor:n-resize;
+}
+
+#section-three:hover {
+	overflow-y:scroll;
+	cursor:n-resize;
+}
+
+/*** -- Changing the color of the Back To Top Links -- ***/
+div div a {
+	color: 	#0606f9;
+}
+
+/********** Desktop View - 992px and Higher **********/
+@media(min-width: 992px){
+	#section-one, #section-two, #section-three {
+		height:700px;
+		pointer-events: none;
+	}
+}
+
+ 
+/********** Tablet View - Between 768px & 991px **********/
+@media(min-width:768px) and (max-width:991px) {
+
+	#section-three {
+		margin-top: 10px;
+	}
+}
+
+ 
+/********** Mobile View - Equal or less than 767px **********/
+@media(max-width:767px) {
+	#section-two, #section-three {
+		margin-top: 10px;
+	}
+
+	#menu-list {
+		padding-bottom: 0px;
+	}
+
+	#menu-list li{
+		background-color: lightgray;
+		border: 1px solid #000;
+	}
+
+	#menu-list li:last-child { 
+	   border-bottom: 0px;
+	   margin-bottom: 0px;
+	}
+
+	#collapsed-menu > ul > li > a {
+		color: #000;
+		font-size: 1.2em;
+	}
+
+	h1 {
+		padding-left: 10px;
+	}
+
+	hr {
+		border-color: #000;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
