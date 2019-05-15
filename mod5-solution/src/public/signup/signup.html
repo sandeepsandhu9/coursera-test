@@ -1,0 +1,124 @@
+<div class="container">
+  <h2 class="text-center">Newsletter Signup</h2> <br>
+  <div>
+    <form class="form-horizontal" name='signupForm' novalidate>
+        <!-- First Name -->
+        <div class="form-group">
+          <label class="col-md-3 control-label">First Name</label>
+          <div class="col-md-4 inputGroupContainer">
+              <input name="first_name" placeholder="First Name" class="form-control" type="text"
+                ng-model="signupCtrl.user.first_name" required minlength="3">
+          </div>
+          
+          <!-- Error Message -->
+          <div class="col-md-5">
+            <span ng-if="(signupForm.first_name.$error.minlength || signupForm.first_name.$error.required) && signupForm.first_name.$touched">
+              Please provide your First Name (Atleast 3 characters).
+            </span>
+          </div>
+        </div>
+  
+        <!-- Last Name -->
+        <div class="form-group">
+          <label class="col-md-3 control-label">Last Name</label>
+          <div class="col-md-4 inputGroupContainer">            
+              <input name="last_name" placeholder="Last Name" class="form-control" type="text"
+                ng-model="signupCtrl.user.last_name" required minlength="3">
+          </div>
+          
+          <!-- Error Message -->
+          <div class="col-md-5">
+            <span ng-if="(signupForm.last_name.$error.minlength || signupForm.last_name.$error.required) && signupForm.last_name.$touched">
+              Please provide your Last Name (Atleast 3 characters).
+            </span>
+          </div>
+        </div>
+  
+        <!-- Email-->
+        <div class="form-group">
+          <label class="col-md-3 control-label">E-Mail</label>
+          <div class="col-md-4 inputGroupContainer">
+              <input name="email" placeholder="E-Mail Address" class="form-control" type="text" ng-model="signupCtrl.user.email" required>
+          </div>
+          
+          <!-- Error Message -->
+          <div class="col-md-5">
+            <div>
+              <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+                Please enter a valid email address: jdoe@something.com
+              </span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Phone-->
+        <div class="form-group">
+          <label class="col-md-3 control-label">Phone #</label>
+          <div class="col-md-4 inputGroupContainer">          
+              <input name="phone" placeholder="718-123-1234" class="form-control" type="text" ng-model="signupCtrl.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+          </div>
+          
+          <!-- Error Message -->
+          <div class="col-md-5">
+            <div>
+              <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+                Phone must be in the format ###-###-####.
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Menu Number -->
+        <div class="form-group">
+          <label class="col-md-3 control-label">Favorite Menu Item</label>
+          <div class="col-md-4 inputGroupContainer">          
+              <input name="menu_number" placeholder="A3" class="form-control" type="text"
+                ng-model="signupCtrl.user.menu_number" ng-change="signupCtrl.favoriteExists()"
+                ng-model-options="{debounce: 1000}" required>
+          </div>
+          
+          <!-- Error Message -->
+          <div class="col-md-5">
+            <div>
+              <span ng-if="signupCtrl.exists">
+                No such menu number exists. Please try again!
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-success" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.submit()">Submit</button>
+          </div>
+        </div>
+    </form>
+
+    <div id="info" ng-if="signupCtrl.completed" class="col-md-6">
+      <h3>Registration Successful!</h3>
+      <h2>Your information has been saved.</h2>
+      First Name: {{ signupCtrl.savedUser.first_name}}<br>
+      Last Name: {{ signupCtrl.savedUser.last_name}}<br>
+      Email: {{ signupCtrl.savedUser.email}}<br>
+      Phone: {{ signupCtrl.savedUser.phone }}<br>
+
+      <h3>Menu Favorite</h3>
+        <div class="col-md-4">
+          <div class="menu-item-photo">
+            <div>{{signupCtrl.menuFavorite.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{signupCtrl.menuFavorite.category_short_name}}/{{signupCtrl.menuFavorite.category_short_name}}.jpg" alt="{{signupCtrl.menuFavorite.name}}">
+          </div>
+        </div>
+        <div class="menu-item-description col-md-7">
+          <h3 class="menu-item-title">{{signupCtrl.menuFavorite.name}}</h3>
+          <p class="menu-item-details">{{signupCtrl.menuFavorite.description}}</p>
+        </div>
+    </div>
+
+    <div id="info" ng-if="signupCtrl.failed" class="col-md-4">
+      <h3>Sorry - No such menu number exists.</h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container"> 
+  <div>
+    <div>
+      <div ng-if="userCtrl.exists">
+        <h2>User Information</h2>
+        First Name: {{ userCtrl.user.first_name}}<br>
+        Last Name: {{ userCtrl.user.last_name}}<br>
+        Email: {{ userCtrl.user.email}}<br>
+        Phone: {{ userCtrl.user.phone }}<br>
+        
+        <h3>Menu Favorite</h3>
+        <div class="col-md-4">
+          <div class="menu-item-photo">
+            <div>{{userCtrl.menuFavorite.short_name}}</div>
+            <img class="img-responsive" width="235" height="140" 
+            ng-src="images/menu/{{userCtrl.menuFavorite.category_short_name}}/{{userCtrl.menuFavorite.category_short_name}}.jpg" 
+            ng-alt="{{userCtrl.menuFavorite.name}}">
+          </div>
+        </div>
+        <div class="menu-item-description">
+          <h3 class="menu-item-title">{{userCtrl.menuFavorite.name}}</h3>
+          <p class="menu-item-details">{{userCtrl.menuFavorite.description}}</p>
+        </div>
+      </div>
+    
+      <!-- If Not currently a user, display Link to Signup Page-->      
+      <div ng-if="!myInfoCtrl.info">
+                                     Not Signed Up Yet. 
+        <a ui-sref="public.signup">Sign up Now!</a>
+      </div>
+    </div>
+  </div>
+</div>
